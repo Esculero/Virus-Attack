@@ -8,8 +8,12 @@ var playerHealth : int = 100;
 
 @onready var attackArea: Area2D = $Attack_CollisionShape
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_timer: Timer = $Attack_CollisionShape/AttackTimer
+
 
 var canJump : bool = false
+var isAttacking : bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -31,6 +35,12 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 	
+	if(not isAttacking):
+		if(direction == 0):
+			animated_sprite.play("IDLE")
+		else:
+			animated_sprite.play("WALK")
+	
 	if(direction > 0):
 		# looking to right
 		attackArea.position.x = abs(attackArea.position.x)
@@ -47,6 +57,19 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func ModifyHealth(health_points: int):
+	playerHealth += health_points
+	playerHealth = min(playerHealth, maxPlayerHealth)
 
 func _on_coyote_timer_timeout() -> void:
 	canJump = false
+
+func _input(event: InputEvent) -> void:
+	if(event.is_action_pressed("attack") and not isAttacking):
+		isAttacking = true
+		animated_sprite.play("ATTACK")
+		attack_timer.start()
+		print("start attack")
+
+func _on_attack_timer_timeout() -> void:
+	isAttacking = false

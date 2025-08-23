@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dc8hre3cao4uw"]
+[gd_scene load_steps=7 format=4 uid="uid://cgwqv5dhsvcau"]
 
-[ext_resource type="Texture2D" uid="uid://xii0ux257jmw" path="res://Assets/sprites/world_tileset.png" id="1_yauo4"]
-[ext_resource type="PackedScene" uid="uid://c3wq7hibqtp7n" path="res://Scenes/player.tscn" id="2_dul3o"]
-[ext_resource type="PackedScene" uid="uid://c3lalm5iur72i" path="res://Scenes/enemy_knight.tscn" id="3_dul3o"]
+[ext_resource type="Texture2D" uid="uid://xii0ux257jmw" path="res://assets/sprites/world_tileset.png" id="1_yauo4"]
+[ext_resource type="PackedScene" uid="uid://c3wq7hibqtp7n" path="res://scenes/player.tscn" id="2_dul3o"]
+[ext_resource type="PackedScene" path="res://Scenes/enemy_knight.tscn" id="3_dul3o"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i63mn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjpye"]
 texture = ExtResource("1_yauo4")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -166,7 +166,7 @@ texture = ExtResource("1_yauo4")
 
 [sub_resource type="TileSet" id="TileSet_vnunq"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_i63mn")
+sources/0 = SubResource("TileSetAtlasSource_vjpye")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i63mn"]
 size = Vector2(126, 95)
