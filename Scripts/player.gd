@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		if canJump and coyote_timer.is_stopped():
 			coyote_timer.start()
-			print("Coyote start")
 		else:
 			velocity += get_gravity() * delta
 	else:
@@ -51,4 +50,3 @@ func _physics_process(delta: float) -> void:
 
 func _on_coyote_timer_timeout() -> void:
 	canJump = false
-	print("Coyote done")

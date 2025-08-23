@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3lalm5iur72i"]
+[gd_scene load_steps=13 format=3 uid="uid://c3lalm5iur72i"]
 
 [ext_resource type="Script" uid="uid://blcn23bs1jhku" path="res://Scripts/enemy_knight.gd" id="1_afpow"]
 [ext_resource type="Texture2D" uid="uid://b4v7210vhux2w" path="res://Assets/sprites/knight.png" id="1_hghv2"]
-[ext_resource type="Script" uid="uid://cdgtmt37lask6" path="res://Scenes/collizion_zone.gd" id="3_fqtt2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqtt2"]
 atlas = ExtResource("1_hghv2")
@@ -74,19 +73,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsjdf"]
-size = Vector2(10, 14)
+size = Vector2(10, 16)
 
-[node name="EnemyKnight" type="Node2D" groups=["enemies"]]
+[node name="EnemyKnight" type="RigidBody2D" groups=["enemies"]]
 script = ExtResource("1_afpow")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
 sprite_frames = SubResource("SpriteFrames_4ra3w")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionZone" type="Area2D" parent="."]
-script = ExtResource("3_fqtt2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionZone"]
-position = Vector2(0, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_wsjdf")

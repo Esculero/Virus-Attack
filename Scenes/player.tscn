@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3wq7hibqtp7n"]
+[gd_scene load_steps=9 format=3 uid="uid://c3wq7hibqtp7n"]
 
-[ext_resource type="Texture2D" uid="uid://obgyy52nms7q" path="res://assets/playerBlock.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://b0rkc4eof1vin" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://c8m21xsh1cjj2" path="res://scripts/playerAttack.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://obgyy52nms7q" path="res://Assets/playerBlock.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b0rkc4eof1vin" path="res://Scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://c8m21xsh1cjj2" path="res://Scripts/playerAttack.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bcjkjafrfw50d" path="res://Assets/attackAreaBounds.png" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -23,7 +24,7 @@ animations = [{
 size = Vector2(11.5, 11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(56, 94)
+size = Vector2(6.5, 12)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
@@ -37,15 +38,20 @@ frame_progress = 0.294871
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Attack_CollisionShape" type="Area2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(9, 0)
 script = ExtResource("3_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_CollisionShape"]
-position = Vector2(73, 0)
 shape = SubResource("RectangleShape2D_qlg0r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack_CollisionShape"]
+visible = false
+scale = Vector2(0.21875, 0.390625)
+texture = ExtResource("4_vgqql")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
 
 [connection signal="body_entered" from="Attack_CollisionShape" to="Attack_CollisionShape" method="_on_body_entered"]
 [connection signal="body_exited" from="Attack_CollisionShape" to="Attack_CollisionShape" method="_on_body_exited"]
