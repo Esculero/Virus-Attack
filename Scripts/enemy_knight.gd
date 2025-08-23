@@ -25,30 +25,30 @@ func _process(delta: float) -> void:
 	if health_points <= 0:
 		queue_free()
 		return
-	
+
 	var delta_x := delta * SPEED_X * direction
-	
+
 	position.x += delta_x
 	movement_area += abs(delta_x)
-	
+
 	var do_flip := false
-	
+
 	if direction == 1:
 		if raycast_right.is_colliding() or !raycast_right_down.is_colliding():
 			do_flip = true
 	else:
 		if raycast_left.is_colliding() or !raycast_left_down.is_colliding():
 			do_flip = true
-	
+
 	if movement_area >= MAXIMUM_MOVEMENT_AREA:
 		do_flip = true
-	
+
 	if do_flip:
 		flip()
-	
+
 func take_damage(_other: Node2D, hit_points: int) -> void:
 	health_points -= hit_points
-	
+
 	animated_sprite.play("damaged")
 
 func flip() -> void:
