@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://c3wq7hibqtp7n"]
 
 [ext_resource type="Script" uid="uid://b0rkc4eof1vin" path="res://Scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cldkacq0e4yxa" path="res://assets/Player.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cldkacq0e4yxa" path="res://Assets/Player.png" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://c8m21xsh1cjj2" path="res://Scripts/playerAttack.gd" id="3_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://bcjkjafrfw50d" path="res://assets/attackAreaBounds.png" id="4_vgqql"]
+[ext_resource type="Texture2D" uid="uid://bcjkjafrfw50d" path="res://Assets/attackAreaBounds.png" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_dqkch")
@@ -94,7 +94,7 @@ size = Vector2(12, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
 size = Vector2(28.7501, 67.7145)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
