@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcjkjafrfw50d"
-path="res://.godot/imported/attackAreaBounds.png-d44dc8618430e6167f1485629557737e.ctex"
+path="res://.godot/imported/attackAreaBounds.png-ac4f7b4dcd3743d93a598766b29837d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/attackAreaBounds.png"
-dest_files=["res://.godot/imported/attackAreaBounds.png-d44dc8618430e6167f1485629557737e.ctex"]
+source_file="res://Assets/attackAreaBounds.png"
+dest_files=["res://.godot/imported/attackAreaBounds.png-ac4f7b4dcd3743d93a598766b29837d6.ctex"]
 
 [params]
 

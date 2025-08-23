@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://ym8ugxxlmi83"]
 
-[ext_resource type="Script" uid="uid://dlbryj2qqap4s" path="res://scripts/covid_health.gd" id="1_f48fj"]
-[ext_resource type="Texture2D" uid="uid://c7cly21nb3n8r" path="res://assets/covidHealth.png" id="1_rw22j"]
-[ext_resource type="AudioStream" uid="uid://b5cp1ci8l5ssr" path="res://assets/sounds/munch.mp3" id="3_qerqu"]
+[ext_resource type="Script" uid="uid://dlbryj2qqap4s" path="res://Scripts/covid_health.gd" id="1_1yp6d"]
+[ext_resource type="Texture2D" uid="uid://c7cly21nb3n8r" path="res://Assets/covidHealth.png" id="1_rw22j"]
+[ext_resource type="AudioStream" uid="uid://b5cp1ci8l5ssr" path="res://Assets/sounds/munch.mp3" id="3_qerqu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f48fj"]
 radius = 6.96088
 
 [node name="CovidHealth" type="Area2D"]
-script = ExtResource("1_f48fj")
+script = ExtResource("1_1yp6d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.00562, 1.01758)

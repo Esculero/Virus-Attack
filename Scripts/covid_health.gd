@@ -2,7 +2,7 @@ extends Area2D
 
 const HEALTH_POINTS = 20;
 @onready var munchStream: AudioStreamPlayer2D = $AudioStreamPlayer2D
-const MUNCH = preload("res://assets/sounds/munch.mp3")
+const MUNCH = preload("res://Assets/sounds/munch.mp3")
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _process(delta: float):
