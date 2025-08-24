@@ -1322,3 +1322,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_7rvor")
 }
 autoplay = "cur"
+
+[node name="CovidHealth2" parent="." instance=ExtResource("15_2wrcq")]
+position = Vector2(299, 92)
