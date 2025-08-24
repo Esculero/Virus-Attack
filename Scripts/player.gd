@@ -3,13 +3,15 @@ extends CharacterBody2D
 const SPEED = 200
 const JUMP_VELOCITY = -250.0
 
-const maxPlayerHealth : int = 100;
-var playerHealth : int = 100;
+const maxPlayerHealth : float = 100;
+var playerHealth : float = 100;
 
 @onready var attackArea: Area2D = $Attack_CollisionShape
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $Attack_CollisionShape/AttackTimer
+@onready var gameplay_gui: Control = $"../CanvasLayer/GameplayGui"
+
 
 
 var canJump : bool = false
@@ -60,8 +62,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func ModifyHealth(health_points: int):
+	var old_player_health := playerHealth
+	
 	playerHealth += health_points
 	playerHealth = min(playerHealth, maxPlayerHealth)
+	
+	var health_gained_percentage = (playerHealth - old_player_health) / maxPlayerHealth
+	
+	gameplay_gui.update_health_bar(health_gained_percentage)
 
 func _on_coyote_timer_timeout() -> void:
 	canJump = false

@@ -25,10 +25,12 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	print(body.name, " entered player's attack zone")
 	if (body.is_in_group("enemies")):
 		targetedEnemies.append(body)
 
 
 func _on_body_exited(body: Node2D) -> void:
+	print(body.name, " exited player's attack zone")
 	if (targetedEnemies.has(body)):
 		targetedEnemies.erase(body)

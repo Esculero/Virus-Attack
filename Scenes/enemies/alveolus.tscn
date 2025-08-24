@@ -92,7 +92,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uan3q"]
 size = Vector2(22, 41)
 
-[node name="Alveolus" type="StaticBody2D" groups=["enemies"]]
+[node name="Alveolus" type="StaticBody2D" groups=["alveoli", "enemies"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_uan3q")
