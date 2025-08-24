@@ -387,6 +387,8 @@ autoplay = "Move"
 
 [node name="Enemies" type="Node" parent="."]
 
+[node name="Moving Enemies Tier 1" type="Node" parent="Enemies"]
+
 [node name="Moving Enemies tier 2" type="Node" parent="Enemies"]
 
 [node name="EnemyKnight" parent="Enemies/Moving Enemies tier 2" instance=ExtResource("4_sohqp")]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://bpw2wfn5qxfcm"]
+
+[ext_resource type="Script" uid="uid://cgbhmt46gf3vf" path="res://Scenes/enemies/macrophage.gd" id="1_ch5lt"]
+[ext_resource type="Texture2D" uid="uid://b1buqlydw66h" path="res://Assets/sprites/macrophage.png" id="1_ydwiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch5lt"]
+size = Vector2(27, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmjfr"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewtqa"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3be13"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1h0d"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlfp3"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch5lt"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4kei"]
+atlas = ExtResource("1_ydwiq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jlfp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmjfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewtqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3be13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1h0d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlfp3")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch5lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4kei")
+}],
+"loop": false,
+"name": &"landing",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmjfr"]
+size = Vector2(29, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ch5lt"]
+radius = 89.0056
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ch5lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_ch5lt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jlfp3")
+animation = &"landing"
+autoplay = "idle"
+
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_xmjfr")
+
+[node name="SpottingZone" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpottingZone"]
+shape = SubResource("CircleShape2D_ch5lt")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="SpottingZone" to="." method="_on_spotting_zone_body_entered"]
+[connection signal="body_exited" from="SpottingZone" to="." method="_on_spotting_zone_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
