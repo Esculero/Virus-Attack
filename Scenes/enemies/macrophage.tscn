@@ -1,10 +1,46 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpw2wfn5qxfcm"]
+[gd_scene load_steps=16 format=3 uid="uid://bpw2wfn5qxfcm"]
 
 [ext_resource type="Script" uid="uid://cgbhmt46gf3vf" path="res://Scripts/macrophage.gd" id="1_ch5lt"]
 [ext_resource type="Texture2D" uid="uid://b1buqlydw66h" path="res://Assets/sprites/macrophage.png" id="1_ydwiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch5lt"]
 size = Vector2(27, 14)
+
+[sub_resource type="Shader" id="Shader_ch5lt"]
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_factor : hint_range(0.0, 1.0) = 0.5;
+uniform float fade : hint_range(0.0, 1.0) = 1.0;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+	vec4 main_texture = texture(TEXTURE, UV);
+	vec4 final_output = main_texture;
+
+	float original_modulation = 1.0 - tint_factor;
+
+	final_output.rgb = mix(main_texture.rgb * original_modulation, color.rgb * tint_factor, tint_factor);
+	final_output.a *= fade;
+
+	COLOR = final_output;}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ch5lt"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ch5lt")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/tint_factor = 0.0
+shader_parameter/fade = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmjfr"]
 atlas = ExtResource("1_ydwiq")
@@ -34,7 +70,7 @@ region = Rect2(64, 32, 32, 32)
 atlas = ExtResource("1_ydwiq")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jlfp3"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmjfr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -77,41 +113,49 @@ animations = [{
 size = Vector2(29, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ch5lt"]
-radius = 89.0056
+radius = 144.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemies"]]
+[node name="Macrophage" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
 script = ExtResource("1_ch5lt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_ch5lt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_jlfp3")
+material = SubResource("ShaderMaterial_ch5lt")
+sprite_frames = SubResource("SpriteFrames_xmjfr")
 animation = &"landing"
 autoplay = "idle"
 
-[node name="JumpTimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+[node name="AttackAreaShape" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(0.5, 6)
 shape = SubResource("RectangleShape2D_xmjfr")
 
 [node name="SpottingZone" type="Area2D" parent="."]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpottingZone"]
+[node name="SpottingAreaShape" type="CollisionShape2D" parent="SpottingZone"]
 shape = SubResource("CircleShape2D_ch5lt")
 
 [node name="AttackTimer" type="Timer" parent="."]
 
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="HitTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="SpottingZone" to="." method="_on_spotting_zone_body_entered"]
 [connection signal="body_exited" from="SpottingZone" to="." method="_on_spotting_zone_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
