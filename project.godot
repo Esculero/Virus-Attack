@@ -12,8 +12,9 @@ config_version=5
 
 config/name="Virus Attack"
 config/version="1.0"
-run/main_scene="uid://b5mf614e1bk58"
+run/main_scene="uid://bnvuxij4oe5md"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://cqe6e1ckw546h"
 config/icon="uid://c32i0nblnj832"
 
 [display]
