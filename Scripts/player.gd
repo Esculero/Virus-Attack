@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 200
+const JUMP_VELOCITY = -250.0
 
 const maxPlayerHealth : int = 100;
 var playerHealth : int = 100;
@@ -44,10 +44,12 @@ func _physics_process(delta: float) -> void:
 	if(direction > 0):
 		# looking to right
 		attackArea.position.x = abs(attackArea.position.x)
+		animated_sprite.flip_h = false
 		pass
 	elif(direction < 0):
 		# looking to left
 		attackArea.position.x = abs(attackArea.position.x) * -1
+		animated_sprite.flip_h = true
 		pass
 	
 	if direction:
@@ -69,7 +71,6 @@ func _input(event: InputEvent) -> void:
 		isAttacking = true
 		animated_sprite.play("ATTACK")
 		attack_timer.start()
-		print("start attack")
 
 func _on_attack_timer_timeout() -> void:
 	isAttacking = false
