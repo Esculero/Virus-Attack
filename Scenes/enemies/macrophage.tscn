@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bpw2wfn5qxfcm"]
 
-[ext_resource type="Script" uid="uid://cgbhmt46gf3vf" path="res://Scenes/enemies/macrophage.gd" id="1_ch5lt"]
+[ext_resource type="Script" uid="uid://cgbhmt46gf3vf" path="res://Scripts/macrophage.gd" id="1_ch5lt"]
 [ext_resource type="Texture2D" uid="uid://b1buqlydw66h" path="res://Assets/sprites/macrophage.png" id="1_ydwiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch5lt"]
@@ -79,7 +79,7 @@ size = Vector2(29, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ch5lt"]
 radius = 89.0056
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_ch5lt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
