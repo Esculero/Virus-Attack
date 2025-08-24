@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 const JUMP_VELOCITY := Vector2(150, -200)
 const ATTACK_INTERVAL_SECONDS := 1.0
-const STARTING_HEALTH := 100
+const STARTING_HEALTH := 60
 
 var must_jump := false
 var must_land := false

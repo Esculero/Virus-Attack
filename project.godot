@@ -39,6 +39,7 @@ folder_colors={
 enemies=""
 player=""
 alveoli=""
+mud=""
 
 [gui]
 

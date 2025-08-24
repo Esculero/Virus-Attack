@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const STARTING_HEALTH := 100.0
+const STARTING_HEALTH := 75
 const SPEED_X := 30.0
 const MAXIMUM_MOVEMENT_AREA := 100.0 # big enough, dunno how to make it configurable per instance
 
@@ -66,4 +66,4 @@ func test_collision() -> void:
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.has_method("ModifyHealth"):
-			body.ModifyHealth(-10)
+			body.ModifyHealth(-7)

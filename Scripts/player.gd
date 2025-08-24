@@ -1,7 +1,13 @@
 extends CharacterBody2D
 
-const SPEED = 200
-const JUMP_VELOCITY = -400.0
+const NORMALSPEED = 200
+const SLOWSPEED = 100
+
+const NORMALJUMP_VELOCITY = -400.0
+const SLOWJUMP_VELOCITY = -250.0
+
+var SPEED = NORMALSPEED
+var JUMP_VELOCITY = NORMALJUMP_VELOCITY
 
 const maxPlayerHealth : float = 100;
 var playerHealth : float = 100;
@@ -12,7 +18,6 @@ var playerHealth : float = 100;
 @onready var attack_timer: Timer = $Attack_CollisionShape/AttackTimer
 
 @onready var gameplay_gui: Control = $"../CanvasLayer/GameplayGui"
-
 
 
 var canJump : bool = false
@@ -85,3 +90,12 @@ func _input(event: InputEvent) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	isAttacking = false
+
+
+func SlowDown():
+	SPEED = SLOWSPEED
+	JUMP_VELOCITY = SLOWJUMP_VELOCITY
+	
+func StopSlowingDown():
+	SPEED = NORMALSPEED
+	JUMP_VELOCITY = NORMALJUMP_VELOCITY

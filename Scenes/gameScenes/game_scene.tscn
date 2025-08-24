@@ -478,6 +478,21 @@ _data = {
 &"Vine calu baaa": SubResource("Animation_el8jc")
 }
 
+[sub_resource type="Animation" id="Animation_dfybm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(862, 1304)]
+}
+
 [sub_resource type="Animation" id="Animation_fqosk"]
 resource_name = "muci"
 loop_mode = 2
@@ -494,7 +509,13 @@ tracks/0/keys = {
 "values": [Vector2(862, 1304), Vector2(862, 1416)]
 }
 
-[sub_resource type="Animation" id="Animation_dfybm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acyx5"]
+_data = {
+&"RESET": SubResource("Animation_dfybm"),
+&"muci": SubResource("Animation_fqosk")
+}
+
+[sub_resource type="Animation" id="Animation_2wrcq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -506,13 +527,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(862, 1304)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_acyx5"]
-_data = {
-&"RESET": SubResource("Animation_dfybm"),
-&"muci": SubResource("Animation_fqosk")
+"values": [Vector2(1200, 2035)]
 }
 
 [sub_resource type="Animation" id="Animation_acyx5"]
@@ -529,21 +544,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1200, 2035), Vector2(1200, 2132)]
-}
-
-[sub_resource type="Animation" id="Animation_2wrcq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1200, 2035)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rhhnt"]
@@ -1075,6 +1075,7 @@ autoplay = "buci"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(776, 1200)
 stream = ExtResource("5_nh7xm")
+volume_db = 10.0
 autoplay = true
 max_distance = 520.0
 parameters/looping = true
@@ -1106,7 +1107,7 @@ zoom = Vector2(2, 2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_fti12")
-volume_db = -6.09
+volume_db = -20.0
 autoplay = true
 parameters/looping = true
 
