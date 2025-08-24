@@ -1,0 +1,214 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnvuxij4oe5md"]
+
+[ext_resource type="Theme" uid="uid://cco1st5d68j37" path="res://Assets/themes/gameTheme.tres" id="1_txdew"]
+[ext_resource type="Script" uid="uid://c7ts82yxwqpld" path="res://Scripts/GUI/main_menu.gd" id="2_44u2e"]
+[ext_resource type="Texture2D" uid="uid://cqffvhfjoh02m" path="res://Assets/sprites/backgrounds/mainMenuBG.png" id="2_u2mxb"]
+[ext_resource type="Texture2D" uid="uid://cqe6e1ckw546h" path="res://Assets/sprites/icons/Logo.png" id="3_u2mxb"]
+[ext_resource type="AudioStream" uid="uid://d1t377ij5qb1" path="res://Assets/sounds/music/mainMenuBgm.mp3" id="4_5joo7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5joo7"]
+texture = ExtResource("2_u2mxb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44u2e"]
+texture = ExtResource("3_u2mxb")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_txdew")
+script = ExtResource("2_44u2e")
+
+[node name="BgContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="BgContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5joo7")
+
+[node name="MainMenuContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenuContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 91.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 360)
+color = Color(0, 0, 0, 0.270588)
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 91.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 360)
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="PlayBT" type="Button" parent="MainMenuContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+action_mode = 0
+text = "Play
+"
+
+[node name="CreditsBT" type="Button" parent="MainMenuContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitBT" type="Button" parent="MainMenuContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.311632
+anchor_top = 0.0532089
+anchor_right = 1.31163
+anchor_bottom = 1.05321
+offset_left = -398.889
+offset_top = -191.31
+offset_right = -398.889
+offset_bottom = -191.31
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.390687, 0.390687)
+pivot_offset = Vector2(640, 360)
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="MainMenuContainer/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_44u2e")
+
+[node name="CreditsContainer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(640, 360)
+color = Color(0, 0, 0, 0.270588)
+
+[node name="CenterContainer" type="CenterContainer" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(640, 360)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsContainer/CenterContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Menu BGM:
+\"Danse of Questionable Tuning\" Kevin MacLeod [url]{incompetech.com}(incompetech.com)[/url]
+Licensed under Creative Commons: By Attribution 4.0 License
+[url]{http://creativecommons.org/licenses/by/4.0/}http://creativecommons.org/licenses/by/4.0/[/url]
+
+Gameplay BGM:
+\"Danse of Questionable Tuning\" Kevin MacLeod [url]{incompetech.com}(incompetech.com)[/url]
+Licensed under Creative Commons: By Attribution 4.0 License
+[url]{http://creativecommons.org/licenses/by/4.0/}http://creativecommons.org/licenses/by/4.0/[/url]
+
+Font
+Pixel Comic Sans (Undertale Sans Font)
+This font was created by “ColorSwitchFan25”.
+[url={https://fontstruct.com/fontstructions/show/1534860}] https://fontstruct.com/fontstructions/show/1534860 [/url]
+
+Art was partially created using generative AI.
+
+[color=green][font_size={30}]Team Esculero[/font_size][/color]
+Balea Andrei - Petru
+Berechet Lucian - Ion
+Mironica Vasile"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+language = "en"
+
+[node name="VBoxContainer2" type="MarginContainer" parent="CreditsContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 467.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 90)
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="ReturnBT" type="Button" parent="CreditsContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Return
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5joo7")
+volume_db = -0.5
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="MainMenuContainer/MarginContainer/VBoxContainer/PlayBT" to="." method="_on_play_bt_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MarginContainer/VBoxContainer/CreditsBT" to="." method="_on_credits_bt_pressed"]
+[connection signal="pressed" from="MainMenuContainer/MarginContainer/VBoxContainer/QuitBT" to="." method="_on_quit_bt_pressed"]
+[connection signal="pressed" from="CreditsContainer/VBoxContainer2/VBoxContainer/ReturnBT" to="." method="_on_return_bt_pressed"]

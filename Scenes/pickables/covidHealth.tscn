@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ym8ugxxlmi83"]
 
 [ext_resource type="Script" uid="uid://dlbryj2qqap4s" path="res://Scripts/covid_health.gd" id="1_1yp6d"]
-[ext_resource type="Texture2D" uid="uid://c7cly21nb3n8r" path="res://Assets/covidHealth.png" id="1_rw22j"]
+[ext_resource type="Texture2D" uid="uid://c7cly21nb3n8r" path="res://Assets/sprites/covidHealth.png" id="1_rw22j"]
 [ext_resource type="AudioStream" uid="uid://b5cp1ci8l5ssr" path="res://Assets/sounds/munch.mp3" id="3_qerqu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f48fj"]

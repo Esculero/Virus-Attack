@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhu5gx0rcgp4r"]
 
-[ext_resource type="Texture2D" uid="uid://bc4obmris06id" path="res://assets/sprites/parallax saturated background pack/01_ground.png" id="1_ltlj5"]
-[ext_resource type="Texture2D" uid="uid://cpdedhvrs42g8" path="res://assets/sprites/parallax saturated background pack/02_trees and bushes.png" id="2_rymcx"]
-[ext_resource type="Texture2D" uid="uid://rugv5xu3n8wd" path="res://assets/sprites/parallax saturated background pack/03_distant_trees.png" id="3_42s4r"]
-[ext_resource type="Texture2D" uid="uid://cskcn1g71aw6x" path="res://assets/sprites/parallax saturated background pack/04_bushes.png" id="4_kopta"]
-[ext_resource type="Texture2D" uid="uid://dsf4t5clxxedd" path="res://assets/sprites/parallax saturated background pack/05_hill1.png" id="5_wi0l6"]
-[ext_resource type="Texture2D" uid="uid://bdpstm44y271h" path="res://assets/sprites/parallax saturated background pack/11_background.png" id="6_rymcx"]
+[ext_resource type="Texture2D" uid="uid://bc4obmris06id" path="res://Assets/sprites/parallax saturated background pack/01_ground.png" id="1_ltlj5"]
+[ext_resource type="Texture2D" uid="uid://cpdedhvrs42g8" path="res://Assets/sprites/parallax saturated background pack/02_trees and bushes.png" id="2_rymcx"]
+[ext_resource type="Texture2D" uid="uid://rugv5xu3n8wd" path="res://Assets/sprites/parallax saturated background pack/03_distant_trees.png" id="3_42s4r"]
+[ext_resource type="Texture2D" uid="uid://cskcn1g71aw6x" path="res://Assets/sprites/parallax saturated background pack/04_bushes.png" id="4_kopta"]
+[ext_resource type="Texture2D" uid="uid://dsf4t5clxxedd" path="res://Assets/sprites/parallax saturated background pack/05_hill1.png" id="5_wi0l6"]
+[ext_resource type="Texture2D" uid="uid://bdpstm44y271h" path="res://Assets/sprites/parallax saturated background pack/11_background.png" id="6_rymcx"]
 
 [node name="Background" type="ParallaxBackground"]
 
