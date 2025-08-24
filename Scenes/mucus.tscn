@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://capr3121eau52"]
+
+[ext_resource type="Texture2D" uid="uid://bbsckwtqk0qbw" path="res://Assets/sprites/Mucus.png" id="1_81842"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb3vm"]
+size = Vector2(16, 9)
+
+[node name="Mucus" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_jb3vm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+scale = Vector2(1.03125, 1)
+texture = ExtResource("1_81842")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
