@@ -1,0 +1,62 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cco1st5d68j37"]
+
+[ext_resource type="FontFile" uid="uid://dgpocoiy5upri" path="res://Assets/fonts/pixel-comic-sans-undertale-sans-font.ttf" id="1_wt5mp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt5mp"]
+bg_color = Color(0.156957, 0.428851, 0.0388369, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.027451, 0.494118, 0.305882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upjh2"]
+bg_color = Color(0.233764, 0.60935, 0.0670826, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.027451, 0.494118, 0.305882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38pwm"]
+bg_color = Color(0.34902, 0.894118, 0.0901961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.027451, 0.494118, 0.305882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aohlu"]
+bg_color = Color(0.0896513, 0.274107, 0.0162112, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.027451, 0.494118, 0.305882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+default_font = ExtResource("1_wt5mp")
+Button/font_sizes/font_size = 72
+Button/fonts/font = ExtResource("1_wt5mp")
+Button/styles/disabled_mirrored = SubResource("StyleBoxFlat_wt5mp")
+Button/styles/hover = SubResource("StyleBoxFlat_upjh2")
+Button/styles/normal = SubResource("StyleBoxFlat_38pwm")
+Button/styles/pressed = SubResource("StyleBoxFlat_aohlu")
+RichTextLabel/font_sizes/normal_font_size = 20
+RichTextLabel/fonts/normal_font = ExtResource("1_wt5mp")

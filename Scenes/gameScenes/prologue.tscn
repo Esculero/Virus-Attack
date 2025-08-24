@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5c6k1vunk4ru"]
+
+[ext_resource type="VideoStream" uid="uid://diahj617043vc" path="res://Assets/video/intro_smaller.ogv" id="1_4ppvx"]
+[ext_resource type="Script" uid="uid://dfjt5lqk2ieh3" path="res://Scripts/GUI/prologue.gd" id="1_6u70t"]
+[ext_resource type="Theme" uid="uid://cco1st5d68j37" path="res://Assets/themes/gameTheme.tres" id="1_twr77"]
+
+[node name="Prologue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_twr77")
+script = ExtResource("1_6u70t")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+stream = ExtResource("1_4ppvx")
+autoplay = true
+expand = true
+
+[node name="SkipTimerMessage" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -68.0
+offset_right = -28.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "Press SPACE to skip..."
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="timeout" from="SkipTimerMessage" to="." method="_on_skip_timer_message_timeout"]
