@@ -1,0 +1,215 @@
+[gd_scene load_steps=6 format=3 uid="uid://e67tnmvkkb70"]
+
+[ext_resource type="Script" uid="uid://bk2cxn41f66qd" path="res://Scripts/GUI/gameplay_gui.gd" id="1_g2my0"]
+[ext_resource type="Theme" uid="uid://cco1st5d68j37" path="res://Assets/themes/gameTheme.tres" id="1_i17e4"]
+[ext_resource type="Texture2D" uid="uid://dohnuby2lqs8f" path="res://Assets/sprites/alveolus.png" id="2_bqaaj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i17e4"]
+atlas = ExtResource("2_bqaaj")
+region = Rect2(6.10184, 7.28927, 32.6555, 41.9857)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxurw"]
+
+[node name="GameplayGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i17e4")
+script = ExtResource("1_g2my0")
+
+[node name="HealthBarBackground" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 43.0
+offset_right = 132.0
+offset_bottom = 63.0
+scale = Vector2(2.42653, 0.850985)
+color = Color(0.360784, 0, 0, 1)
+
+[node name="HealthBar" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 43.0
+offset_right = 132.0
+offset_bottom = 63.0
+scale = Vector2(2.42653, 0.850985)
+pivot_offset = Vector2(0, 10)
+color = Color(0.787534, 6.61317e-05, 3.63868e-05, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 30.0
+offset_right = -41.0
+offset_bottom = 71.0
+grow_horizontal = 0
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_i17e4")
+
+[node name="Counter" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "X left!"
+
+[node name="GamePaused" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 360)
+
+[node name="ColorRect" type="ColorRect" parent="GamePaused"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="MarginContainer" type="MarginContainer" parent="GamePaused"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBox" type="VBoxContainer" parent="GamePaused/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="CenterContainer" type="CenterContainer" parent="GamePaused/MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GamePaused/MarginContainer/VBox/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 144
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxurw")
+text = "Game Paused"
+
+[node name="ResumeBT" type="Button" parent="GamePaused/MarginContainer/VBox"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitBT" type="Button" parent="GamePaused/MarginContainer/VBox"]
+layout_mode = 2
+text = "Quit"
+
+[node name="WinScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 360)
+
+[node name="ColorRect" type="ColorRect" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="MarginContainer" type="MarginContainer" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBox" type="VBoxContainer" parent="WinScreen/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="CenterContainer" type="CenterContainer" parent="WinScreen/MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="WinScreen/MarginContainer/VBox/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 144
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxurw")
+text = "You Won!"
+
+[node name="QuitBT" type="Button" parent="WinScreen/MarginContainer/VBox"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="LoseScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 360)
+
+[node name="ColorRect" type="ColorRect" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="MarginContainer" type="MarginContainer" parent="LoseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBox" type="VBoxContainer" parent="LoseScreen/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="CenterContainer" type="CenterContainer" parent="LoseScreen/MarginContainer/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LoseScreen/MarginContainer/VBox/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 144
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vxurw")
+text = "You died!"
+
+[node name="RetryBT" type="Button" parent="LoseScreen/MarginContainer/VBox"]
+layout_mode = 2
+text = "Try Again"
+
+[node name="QuitBT2" type="Button" parent="LoseScreen/MarginContainer/VBox"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="GamePaused/MarginContainer/VBox/ResumeBT" to="." method="_on_resume_bt_pressed"]
+[connection signal="pressed" from="GamePaused/MarginContainer/VBox/QuitBT" to="." method="_on_quit_bt_pressed"]
+[connection signal="pressed" from="WinScreen/MarginContainer/VBox/QuitBT" to="." method="_on_quit_bt_pressed"]
+[connection signal="pressed" from="LoseScreen/MarginContainer/VBox/RetryBT" to="." method="_on_retry_bt_pressed"]
+[connection signal="pressed" from="LoseScreen/MarginContainer/VBox/QuitBT2" to="." method="_on_quit_bt_pressed"]

@@ -10,6 +10,7 @@ var playerHealth : float = 100;
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $Attack_CollisionShape/AttackTimer
+
 @onready var gameplay_gui: Control = $"../CanvasLayer/GameplayGui"
 
 
@@ -70,6 +71,8 @@ func ModifyHealth(health_points: int):
 	var health_gained_percentage = (playerHealth - old_player_health) / maxPlayerHealth
 	
 	gameplay_gui.update_health_bar(health_gained_percentage)
+	if(playerHealth <= 0):
+		gameplay_gui.ToggleLose()
 
 func _on_coyote_timer_timeout() -> void:
 	canJump = false

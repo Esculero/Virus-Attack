@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://cco1st5d68j37" path="res://Assets/themes/gameTheme.tres" id="3_651yn"]
 [ext_resource type="PackedScene" uid="uid://c3vp3x7c7osdw" path="res://Scenes/platform.tscn" id="3_vnunq"]
 [ext_resource type="AudioStream" uid="uid://dbbrauhxqqmhf" path="res://Assets/sounds/heartbeat-sound-372448.mp3" id="5_nh7xm"]
-[ext_resource type="PackedScene" uid="uid://e67tnmvkkb70" path="res://Scenes/GameplayGui.tscn" id="6_da1rf"]
+[ext_resource type="PackedScene" uid="uid://e67tnmvkkb70" path="res://Scenes/GUI/GameplayGui.tscn" id="6_da1rf"]
 [ext_resource type="Texture2D" uid="uid://cqffvhfjoh02m" path="res://Assets/sprites/backgrounds/mainMenuBG.png" id="7_xk1fw"]
 [ext_resource type="Texture2D" uid="uid://blp2cfc0w5g4t" path="res://Assets/sprites/backgrounds/lungsInsideFrame2.png" id="8_fti12"]
 [ext_resource type="Texture2D" uid="uid://bjitgtb37p1l8" path="res://Assets/sprites/backgrounds/lungsInsideFrame3.png" id="9_fqosk"]
