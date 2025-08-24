@@ -5,11 +5,19 @@ var targetedEnemies: Array
 
 const lightDamage: int = 15;
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
+const SLAP = preload("res://Assets/sounds/slap.mp3")
+
 func _process(_delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action("attack")):
+	if (event.is_action_pressed("attack")):
+		if(targetedEnemies.size() > 0):
+			audio_stream_player_2d.stream = SLAP
+			audio_stream_player_2d.play()
+			pass
+			
 		for enemy in targetedEnemies:
 			# damage the enemy
 			if enemy.has_method("take_damage"):
@@ -24,4 +32,3 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if (targetedEnemies.has(body)):
 		targetedEnemies.erase(body)
-		print(body.name, " left my watch")
