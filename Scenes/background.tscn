@@ -1,11 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhu5gx0rcgp4r"]
+[gd_scene load_steps=7 format=3 uid="uid://2xl6772si8pu"]
 
-[ext_resource type="Texture2D" uid="uid://bc4obmris06id" path="res://Assets/sprites/parallax saturated background pack/01_ground.png" id="1_ltlj5"]
-[ext_resource type="Texture2D" uid="uid://cpdedhvrs42g8" path="res://Assets/sprites/parallax saturated background pack/02_trees and bushes.png" id="2_rymcx"]
-[ext_resource type="Texture2D" uid="uid://rugv5xu3n8wd" path="res://Assets/sprites/parallax saturated background pack/03_distant_trees.png" id="3_42s4r"]
-[ext_resource type="Texture2D" uid="uid://cskcn1g71aw6x" path="res://Assets/sprites/parallax saturated background pack/04_bushes.png" id="4_kopta"]
-[ext_resource type="Texture2D" uid="uid://dsf4t5clxxedd" path="res://Assets/sprites/parallax saturated background pack/05_hill1.png" id="5_wi0l6"]
-[ext_resource type="Texture2D" uid="uid://bdpstm44y271h" path="res://Assets/sprites/parallax saturated background pack/11_background.png" id="6_rymcx"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_am4vs"]
+load_path = "res://.godot/imported/01_ground.png-da61a19ce8333df8ae50b0380fca0e53.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sn1xx"]
+load_path = "res://.godot/imported/02_trees and bushes.png-8a0b40b4fb6489d7c547e24d40106622.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pojwb"]
+load_path = "res://.godot/imported/03_distant_trees.png-942adaed306eb8771aa2e6f3c03bda8d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4aqey"]
+load_path = "res://.godot/imported/04_bushes.png-3e6a71ed334ad186cbe0ad8a6c94a4cb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgxeb"]
+load_path = "res://.godot/imported/05_hill1.png-d21191cd496a87e0c22c6cb7a1e52a40.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ltlj5"]
+load_path = "res://.godot/imported/11_background.png-a7d3c345015ba6046ecad0c8bbbe054a.ctex"
 
 [node name="Background" type="ParallaxBackground"]
 
@@ -14,28 +25,28 @@ motion_scale = Vector2(0.11, 0.11)
 motion_mirroring = Vector2(2048, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
-texture = ExtResource("1_ltlj5")
+texture = SubResource("CompressedTexture2D_am4vs")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 0.2)
 motion_mirroring = Vector2(2048, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-texture = ExtResource("2_rymcx")
+texture = SubResource("CompressedTexture2D_sn1xx")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.18, 0.18)
 motion_mirroring = Vector2(2048, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
-texture = ExtResource("3_42s4r")
+texture = SubResource("CompressedTexture2D_pojwb")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.075, 0.075)
 motion_mirroring = Vector2(2048, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
-texture = ExtResource("4_kopta")
+texture = SubResource("CompressedTexture2D_4aqey")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.085, 0.085)
@@ -43,7 +54,7 @@ motion_mirroring = Vector2(2048, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
 z_index = 1
-texture = ExtResource("5_wi0l6")
+texture = SubResource("CompressedTexture2D_xgxeb")
 
 [node name="ForeGround" type="ParallaxBackground" parent="."]
 layer = 1
@@ -53,4 +64,4 @@ motion_scale = Vector2(2, 2)
 motion_mirroring = Vector2(240, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ForeGround/ParallaxLayer"]
-texture = ExtResource("6_rymcx")
+texture = SubResource("CompressedTexture2D_ltlj5")
