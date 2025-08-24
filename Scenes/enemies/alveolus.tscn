@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://bn6uyogr6am4y"]
+
+[ext_resource type="Texture2D" uid="uid://dohnuby2lqs8f" path="res://Assets/sprites/alveolus.png" id="1_5u1c7"]
+[ext_resource type="Script" uid="uid://bvr01n3b58s4h" path="res://Scripts/alveolus.gd" id="1_uan3q"]
+[ext_resource type="Shader" uid="uid://damaih7mod3e2" path="res://Assets/shaders/colorTintShader.gdshader" id="2_88tri"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsuln"]
+shader = ExtResource("2_88tri")
+shader_parameter/color = Color(1, 0.151344, 0.108333, 1)
+shader_parameter/tint_factor = 0.0
+shader_parameter/fade = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88tri"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsuln"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmfqd"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imp1g"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd1ka"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnqbm"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mir2"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04lyv"]
+atlas = ExtResource("1_5u1c7")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbirq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88tri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsuln")
+}],
+"loop": true,
+"name": &"damaged1",
+"speed": 0.75
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmfqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imp1g")
+}],
+"loop": true,
+"name": &"damaged2",
+"speed": 0.75
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd1ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnqbm")
+}],
+"loop": false,
+"name": &"destroyed",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mir2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04lyv")
+}],
+"loop": true,
+"name": &"healthy",
+"speed": 0.75
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uan3q"]
+size = Vector2(22, 41)
+
+[node name="Alveolus" type="StaticBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_uan3q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_wsuln")
+sprite_frames = SubResource("SpriteFrames_fbirq")
+animation = &"destroyed"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="hitTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(-2, 3.5)
+shape = SubResource("RectangleShape2D_uan3q")
+
+[connection signal="timeout" from="hitTimer" to="." method="_on_hit_timer_timeout"]
