@@ -9,7 +9,7 @@ var health : int = 100
 const ALVEOLUS_POP = preload("res://Assets/sounds/alveolusPop.mp3")
 
 @onready var hit_timer: Timer = $hitTimer
-@onready var gameplay_gui: Control = $"../CanvasLayer/GameplayGui"
+@onready var gameplay_gui: Control = $"../../CanvasLayer/GameplayGui"
 
 
 func _ready() -> void:
