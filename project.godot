@@ -29,6 +29,7 @@ window/stretch/aspect="keep_height"
 
 enemies=""
 player=""
+alveoli=""
 
 [input]
 

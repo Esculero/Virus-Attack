@@ -10,7 +10,8 @@ var playerHealth : float = 100;
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_timer: Timer = $Attack_CollisionShape/AttackTimer
-@onready var gameplay_gui: Control = $GameplayGui
+@onready var gameplay_gui: Control = $"../CanvasLayer/GameplayGui"
+
 
 
 var canJump : bool = false
