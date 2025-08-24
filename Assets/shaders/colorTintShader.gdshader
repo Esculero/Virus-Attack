@@ -12,12 +12,12 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	vec4 main_texture = texture(TEXTURE, UV);
 	vec4 final_output = main_texture;
-	
+
 	float original_modulation = 1.0 - tint_factor;
-	
+
 	final_output.rgb = mix(main_texture.rgb * original_modulation, color.rgb * tint_factor, tint_factor);
 	final_output.a *= fade;
-	
+
 	COLOR = final_output;}
 
 //void light() {

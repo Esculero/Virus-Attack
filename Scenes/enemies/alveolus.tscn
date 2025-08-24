@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://damaih7mod3e2" path="res://Assets/shaders/colorTintShader.gdshader" id="2_88tri"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wsuln"]
+resource_local_to_scene = true
 shader = ExtResource("2_88tri")
 shader_parameter/color = Color(1, 0.151344, 0.108333, 1)
 shader_parameter/tint_factor = 0.0

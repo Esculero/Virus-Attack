@@ -20,6 +20,7 @@ config/icon="uid://c32i0nblnj832"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
@@ -31,16 +32,6 @@ folder_colors={
 "res://Scenes/enemies/": "red",
 "res://Scenes/gameScenes/": "green"
 }
-
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/mode=3
-window/size/resizable=false
-window/size/borderless=true
-window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
 
 [global_group]
 

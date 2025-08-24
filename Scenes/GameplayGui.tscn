@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://e67tnmvkkb70"]
+[gd_scene load_steps=5 format=3 uid="uid://e67tnmvkkb70"]
 
 [ext_resource type="Script" uid="uid://bk2cxn41f66qd" path="res://Scenes/gameplay_gui.gd" id="1_g2my0"]
-[ext_resource type="Texture2D" uid="uid://dohnuby2lqs8f" path="res://Assets/alveolus.png" id="2_bqaaj"]
+[ext_resource type="Theme" uid="uid://cco1st5d68j37" path="res://Assets/themes/gameTheme.tres" id="1_i17e4"]
+[ext_resource type="Texture2D" uid="uid://dohnuby2lqs8f" path="res://Assets/sprites/alveolus.png" id="2_bqaaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i17e4"]
 atlas = ExtResource("2_bqaaj")
@@ -14,23 +15,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_i17e4")
 script = ExtResource("1_g2my0")
 
 [node name="HealthBarBackground" type="ColorRect" parent="."]
 layout_mode = 1
 offset_left = 32.0
-offset_top = 34.0
+offset_top = 43.0
 offset_right = 132.0
-offset_bottom = 54.0
+offset_bottom = 63.0
 scale = Vector2(2.42653, 0.850985)
 color = Color(0.360784, 0, 0, 1)
 
 [node name="HealthBar" type="ColorRect" parent="."]
 layout_mode = 1
 offset_left = 32.0
-offset_top = 34.0
+offset_top = 43.0
 offset_right = 132.0
-offset_bottom = 54.0
+offset_bottom = 63.0
 scale = Vector2(2.42653, 0.850985)
 pivot_offset = Vector2(0, 10)
 color = Color(0.787534, 6.61317e-05, 3.63868e-05, 1)

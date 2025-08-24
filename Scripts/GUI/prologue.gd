@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 		start_game()
 		
 func start_game():
-	# TODO - load the game scene
+	get_tree().change_scene_to_file("res://Scenes/gameScenes/game_scene.tscn")
 	pass
 
 
